@@ -2,7 +2,9 @@ import React from 'react'
 import Logo from '../assets/images/logo.png'
 export default function Navbar() {
   return (
+    // navbar start
     <div className='w-full h-auto mt-8 flex justify-between items-center px-6'>
+      {/* logo */}
       <div className=''>
         <img className='w-18' src={Logo} alt="" />
       </div>

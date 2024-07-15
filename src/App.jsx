@@ -8,6 +8,12 @@ import SearchBar from './Components/SearchBar'
 import FixFirstPart from './Components/FixFirstPart'
 import Footer from './Components/Footer'
 import MainSection from './Components/MainSection'
+import BillingDetails from './Components/BillingDetails'
+import ShopingCartPage from './Components/ShopingCartPage'
+import CheckoutPage from './Components/CheckoutPage'
+import PaySecurelyPage from './Components/PaySecurelyPage'
+import VerifyPurchase from './Components/VerifyPurchase'
+import Dashboard from './Dashboard/Dashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,8 +23,9 @@ function App() {
       <Headder />
       <Navbar />
       <SearchBar />
-      <FixFirstPart />
-      <MainSection />
+      {/* <FixFirstPart /> */}
+      {/* <MainSection /> */}
+      <Dashboard />
       <Footer />
     </>
   )
