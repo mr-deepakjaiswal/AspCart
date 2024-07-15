@@ -25,6 +25,12 @@ import NoCollection from './Profile/NoCollection';
 import AdminCollection from './Profile/AdminCollection';
 
 function Dashboard() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+      
   const [selectedTab, setSelectedTab] = useState('dashboard');
 
   const handleTabClick = (tab) => {
@@ -38,13 +44,46 @@ function Dashboard() {
           <img src={Ellipse506} alt="Profile Picture" className="rounded-full" />
           <p className="mt-2 text-gray-700">Joined Jun 21st 24</p>
         </div>
-        <div className="space-y-2">
+        <button
+          className="bg-gray-300 rounded-md px-4 py-2"
+          onClick={toggleMenu}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+        <div
+        className={`flex-1 p-4 ${
+          isOpen ? 'block' : 'hidden'
+        } md:block`}
+      >
+        {/* Dashboard content goes here */}
+        <div className="">
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'dashboard' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex flex-wrap items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'dashboard' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('dashboard')}
           >
-            <span><img src={House} alt="" /></span>
-            <span>Dashboard</span>
+            <span><img className='h-auto max-w-full' src={House} alt="" /></span>
+            <span className='md:block hidden'>Dashboard</span>
           </button>
           <button
             className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'profile' ? 'bg-gray-200 text-red-700' : ''}`}
@@ -111,6 +150,7 @@ function Dashboard() {
             <span>Statements</span>
           </button>
         </div>
+      </div>
       </div>
       <div className="w-3/4 bg-gray-100 ms-4  rounded-md ">
         {selectedTab === 'dashboard' && <div><DashboardPage /></div>}
