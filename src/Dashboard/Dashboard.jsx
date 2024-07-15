@@ -23,14 +23,9 @@ import ProfileBookmarkCollection from './Profile/ProfileBookmarkCollection';
 import CreateNewCollection from './Profile/CreateNewCollection';
 import NoCollection from './Profile/NoCollection';
 import AdminCollection from './Profile/AdminCollection';
+import SettingPage from './DashboardSettings/SettingPage';
 
 function Dashboard() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-      
   const [selectedTab, setSelectedTab] = useState('dashboard');
 
   const handleTabClick = (tab) => {
@@ -44,38 +39,7 @@ function Dashboard() {
           <img src={Ellipse506} alt="Profile Picture" className="rounded-full" />
           <p className="mt-2 text-gray-700">Joined Jun 21st 24</p>
         </div>
-        <button
-          className="bg-gray-300 rounded-md px-4 py-2"
-          onClick={toggleMenu}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-        <div
-        className={`flex-1 p-4 ${
-          isOpen ? 'block' : 'hidden'
-        } md:block`}
-      >
+        
         {/* Dashboard content goes here */}
         <div className="">
           <button
@@ -151,13 +115,12 @@ function Dashboard() {
           </button>
         </div>
       </div>
-      </div>
       <div className="w-3/4 bg-gray-100 ms-4  rounded-md ">
         {selectedTab === 'dashboard' && <div><DashboardPage /></div>}
         {selectedTab === 'profile' && <div><AdminCollection /></div>}
         {selectedTab === 'followers' && <div><FollowersPage /></div>}
         {selectedTab === 'followings' && <div><FollowingsPage /></div>}
-        {selectedTab === 'settings' && <div>Settings Content</div>}
+        {selectedTab === 'settings' && <div><SettingPage /></div>}
         {selectedTab === 'hiddenItems' && <div><HiddenItemsPage /></div>}
         {selectedTab === 'download' && <div><DounloadPageFirst /></div>}
         {selectedTab === 'reviews' && <div><ReviewsPage /></div>}
