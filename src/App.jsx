@@ -14,6 +14,7 @@ import CheckoutPage from './Components/CheckoutPage'
 import PaySecurelyPage from './Components/PaySecurelyPage'
 import VerifyPurchase from './Components/VerifyPurchase'
 import Dashboard from './Dashboard/Dashboard'
+import AdminDashboard from './AdminDashboard/AdminDashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,7 +26,8 @@ function App() {
       <SearchBar />
       {/* <FixFirstPart /> */}
       {/* <MainSection /> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <AdminDashboard />
       <Footer />
     </>
   )

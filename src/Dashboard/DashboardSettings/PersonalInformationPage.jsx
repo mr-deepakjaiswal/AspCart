@@ -14,8 +14,8 @@ export default function PersonalInformationPage() {
   const [gst, setGst] = useState('');
 
   return (
-    <div>
-      <div className="p-6">
+    <div className=''>
+      <div className="p-6 ">
         <div className='flex gap-4'>
           <div className='flex flex-col w-1/2 '>
             <div className="mb-4 ">
@@ -83,18 +83,18 @@ export default function PersonalInformationPage() {
 
 
           <div className='flex flex-col w-1/2'>
-          <div className="mb-4">
-            <label htmlFor="lastName" className="block text-gray-700 text-sm font-bold mb-2">
-              Last Name (Family Name)
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
+            <div className="mb-4">
+              <label htmlFor="lastName" className="block text-gray-700 text-sm font-bold mb-2">
+                Last Name (Family Name)
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
             <div className="mb-4">
               <label htmlFor="country" className="block text-gray-700 text-sm font-bold mb-2">
                 Country
@@ -162,6 +162,7 @@ export default function PersonalInformationPage() {
           <button className='bg-slate-300 px-4 py-2 rounded-md font-semibold text-slate-500'>Close</button>
         </div>
       </div>
+      
     </div>
   )
 }
