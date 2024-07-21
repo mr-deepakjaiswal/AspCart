@@ -12,14 +12,14 @@ import ShareCollection from './ShareCollection';
 
 export default function AdminCollection() {
   return (
-    <div className='flex gap-4 p-6'>
-      <div className='w-3/4 flex flex-col h-min flex-wrap gap-4 bg-white  rounded-lg  p-6'>
+    <div className='flex flex-wrap md:flex-nowrap gap-4'>
+      <div className='md:w-3/4 flex flex-col h-min flex-wrap gap-4 bg-white  rounded-lg  p-6'>
         <div className='flex  items-center gap-4'>
           <h1>Sort by:</h1>
           <button className='flex items-center gap-2 border-2 p-1 rounded-md'>Title <span><FaChevronDown /></span></button>
         </div>
-        <div className='flex flex-wrap gap-6 p-6'>
-          <div className='shadow-md w-64 rounded-lg flex flex-col gap-2 items-center'>
+        <div className='flex justify-center flex-wrap gap-10 p-6 '>
+          <div className='shadow-md w-64 rounded-lg flex flex-col gap-2 items-center '>
             <div className=''>
               <img className='w-44' src={Rectangle22111} alt="" />
             </div>
@@ -171,7 +171,7 @@ export default function AdminCollection() {
         </div>
       </div>
 
-      <div className=' w-2/6 bg-white h-fit p-6 rounded-lg border-t-8  border-red-600 '>
+      <div className=' md:w-2/6 bg-white h-fit p-6 rounded-lg border-t-8  border-red-600 '>
         <div className='flex flex-col gap-4'>
           <button className='bg-indigo-900 text-white p-2 rounded-md font-semibold' onClick={() => {
                     // Toggle the modal visibility

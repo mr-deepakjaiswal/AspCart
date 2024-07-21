@@ -22,7 +22,7 @@ function ProfilePage() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container flex flex-col flex-wrap mx-auto">
       <h2 className="text-2xl font-bold mb-4">Avatar</h2>
       <div className=" rounded-md p-4">
         <div className="flex justify-center items-center border-b-2 pb-4">
@@ -30,12 +30,12 @@ function ProfilePage() {
             <img src={URL.createObjectURL(avatar)} alt="Avatar" className="w-48 h-48 rounded-full" />
           ) : (
             <label htmlFor="avatar-input" className="flex flex-col items-center justify-center px-6 py-8 rounded-lg shadow-lg tracking-wide uppercase  cursor-pointer ">
-                <div className='flex flex-col items-center'>
-                  <img className='mb-[-240px]' src={Reactangle4556} alt="" />
-                  <img className='mb-[-190px]' src={Reactangle4543} alt="" />
+                <div className='flex flex-wrap flex-col items-center'>
+                  <img className='md:mb-[-240px] mb-[-165px]' src={Reactangle4556} alt="" />
+                  <img className='md:mb-[-190px] mb-[-150px]' src={Reactangle4543} alt="" />
                   <img src={Reactangle4524} alt="" />
                 </div>
-              <span className="border-2 p-2 bg-indigo-100 bg-transparent text-white font-bold text-base leading-normal">Choose File</span>
+              <span className="border-2 border-indigo-900 rounded-md p-2 bg-indigo-100 bg-transparent text-indigo-900 font-bold text-base leading-normal ">Choose File</span>
               <input type="file" id="avatar-input" className="hidden" onChange={handleFileChange} />
             </label>
           )}

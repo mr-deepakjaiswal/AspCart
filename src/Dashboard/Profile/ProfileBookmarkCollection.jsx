@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CreateNewCollection from './CreateNewCollection';
 
 export default function ProfileBookmarkCollection() {
   const [name, setName] = useState('');
@@ -28,15 +29,21 @@ export default function ProfileBookmarkCollection() {
     console.log({ name, file, description, isPublic });
   };
 
+  const [selectedTab, setSelectedTab] = useState('personalInformation');
+
+  const handleTabClick = (tab) => {
+    setSelectedTab(tab);
+  };
+
   return (
     <div>
-      <div className='flex gap-4 p-6'>
-        <div className='w-3/4 h-min bg-white border-s-8 border-s-red-600 rounded-lg p-6 flex flex-col gap-4'>
+      {selectedTab === 'CreateCollection' ? <CreateNewCollection /> : <div className='flex flex-wrap md:flex-nowrap gap-4'>
+        <div className='md:w-3/4 h-min bg-white border-s-8 border-s-red-600 rounded-lg p-6 flex flex-col gap-4'>
           <p className='text-md font-bold '>Your public collections</p>
           <p className='text-md font-semibold '>You don't have any public collections yet.</p>
           <p className='text-md font-semibold'> <button className='text-indigo-900 font-bold'>Public Collections</button> allow you to group items together and make the link publicly available. They can be used to group items to show a client, to showcase work, to create links to use with your referral code or to create collections of related items to appear on item pages.</p>
         </div>
-        <div className=' w-2/6 bg-white h-fit p-6 rounded-lg'>
+        <div className=' md:w-2/6 bg-white h-fit p-6 rounded-lg'>
           <h2 className="text-2xl font-bold mb-4">Create A Collection</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -87,16 +94,18 @@ export default function ProfileBookmarkCollection() {
               </label>
             </div>
             <div className='flex justify-center'>
-            <button
-              type="submit"
-              className=" bg-indigo-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Create Collection
-            </button></div>
+              <button
+                type="submit"
+                className={`bg-indigo-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline${selectedTab === 'CreateCollection' ? 'border-b-2 text-red-700 border-red-700' : ''}`}
+                onClick={() => handleTabClick('CreateCollection')}
+              >
+                Create Collection
+              </button></div>
           </form>
 
         </div>
-      </div>
+      </div>}
+
     </div>
   )
 }

@@ -11,7 +11,7 @@ function PIAspCartAccountSettings() {
 
   return (
     <div>
-      {selectedTab === 'EditDetails' ? <PIAspCartEditDetails /> : <div className='p-6 flex justify-between'>
+      {selectedTab === 'EditDetails' ? <PIAspCartEditDetails /> : <div className=' flex flex-wrap md:flex-nowrap justify-between'>
         <div></div>
         <div className='flex flex-col gap-4'>
           <h1 className='text-3xl font-bold'>Welcome to the AspCart Account Center</h1>
@@ -58,7 +58,7 @@ function PIAspCartAccountSettings() {
                 />
               </div>
             </div>
-            <div className="flex justify-evenly">
+            <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-0 justify-evenly">
               <button className={`bg-indigo-900 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline${selectedTab === 'EditDetails' ? '' : ''}`}
                 onClick={() => handleTabClick('EditDetails')}>
                 Edit details

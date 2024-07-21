@@ -2,7 +2,7 @@ import React from 'react'
 import { FaAngleDown } from "react-icons/fa";
 import { FaQuestionCircle } from "react-icons/fa";
 
-export default function EarningsPage() {
+export default function AdminEarningsPage() {
   return (
     <div>
       <div className='w-full bg-white p-6 flex md:flex-row flex-col gap-4'>

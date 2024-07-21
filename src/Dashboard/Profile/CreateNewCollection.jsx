@@ -103,7 +103,7 @@ export default function CreateNewCollection() {
           <input
             type="file"
             id="coverImage"
-            className="shadow appearance-none border rounded w-1/4 py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded md:w-1/4 w-52 py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
             accept="image/jpeg, image/png"
             onChange={handleImageChange}
           />
@@ -112,7 +112,7 @@ export default function CreateNewCollection() {
           </p>
         </div>
        
-        <div className="flex justify-start">
+        <div className="flex flex-wrap gap-4 md:gap-0 justify-start">
           <button
             type="submit"
             className="bg-indigo-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

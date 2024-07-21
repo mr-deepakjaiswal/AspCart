@@ -17,8 +17,8 @@ export default function HiddenItemsPage() {
   };
 
   return (
-    <div className='flex gap-6'>
-      <div className='w-3/4 bg-white p-6 h-screen rounded-lg'>
+    <div className='flex md:flex-nowrap flex-wrap gap-6'>
+      <div className='md:w-3/4 bg-white p-6 h-screen rounded-lg'>
         <div className='flex items-center border-b-2 pb-4'>
           <button className='text-lg border-2 p-2 rounded-lg font-semibold'>Date Modified</button>
           <span className='text-5xl'><IoIosArrowRoundUp /></span>
@@ -30,13 +30,13 @@ export default function HiddenItemsPage() {
           </div>
         </div>
       </div>
-      <div className=' w-2/6 h-min'>
+      <div className=' md:w-2/6 h-min'>
         <div className='bg-white rounded-lg'>
           <h1 className='text-xl font-bold p-6'>Search Portfolio</h1>
-          <div className=' flex justify-center'> 
-            <div className='p-6'>
-              <input className='w-4/6 p-1 border-2 rounded-s-full' type="text" name="" id="" placeholder='Search Portfolio' />
-              <button className='bg-red-700 p-1 px-4 font-normal text-white rounded-e-full' >Search</button>
+          <div className=' flex justify-center'>
+            <div className='p-6 flex'>
+              <input className='md:w-4/6 w-24 p-1 border-2 rounded-s-full' type="text" name="" id="" placeholder='Search Portfolio' />
+              <button className='bg-red-700 p-1 md:px-4 px-2 font-normal text-white rounded-e-full' >Search</button>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function HiddenItemsPage() {
             </div>
             <div>
               <h1 className='font-semibold'>admin@.com</h1>
-              <div className='flex gap-2'>
+              <div className='flex flex-wrap gap-2'>
                 <span><img src={Poligon1} alt="" /></span>
                 <span><img src={Poligon2} alt="" /></span>
                 <span><img src={Poligon3} alt="" /></span>

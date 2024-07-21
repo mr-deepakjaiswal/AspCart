@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function NoCollection() {
   return (
-    <div className='flex gap-4 p-6'>
-      <div className='w-3/4 bg-white border-s-8 border-red-600 rounded-lg  p-6'>
+    <div className='flex flex-wrap md:flex-nowrap gap-4 p-6'>
+      <div className='md:w-3/4 bg-white border-s-8 border-red-600 rounded-lg  p-6'>
         <p className='text-md font-semibold my-4'>You have no collections yet </p>
         <p className='text-md font-semibold my-4'>Create collections to manage items you have saved whether to share them with clients, because they fit into categories or just because that's how you think about them.</p>
       </div>
-      <div className=' w-2/6 bg-white h-fit p-6 rounded-lg border-t-8  border-red-600 '>
-        <div className='flex flex-col gap-4'>
+      <div className=' md:w-2/6 bg-white h-fit p-6 rounded-lg border-t-8  border-red-600 '>
+        <div className='flex flex-wrap flex-col gap-4'>
           <button className='bg-indigo-900 text-white p-2 rounded-md font-semibold'>Create Collection</button>
           <div className='flex flex-col justify-center items-center gap-4'>
             <button className='p-2 w-full bg-green-950 text-white rounded-md '>What are Collections?</button>

@@ -16,13 +16,12 @@ export default function SettingPage() {
 
   return (
     <div>
-      {selectedTab === 'AspCartAccountSettings' ? <PIAspCartAccountSettings /> : <div className='flex gap-6'>
-        <div className='flex flex-wrap  flex-col gap-6 bg-white w-3/4 p-4 rounded-lg'>
+      {selectedTab === 'AspCartAccountSettings' ? <PIAspCartAccountSettings /> : <div className='flex flex-wrap md:flex-nowrap gap-6'>
+        <div className='flex flex-wrap flex-col gap-6 bg-white md:w-3/4 p-4 rounded-lg'>
           <div className='border-b-2 pb-4'>
-            <div className='flex gap-2'>
+            <div className='flex flex-wrap justify-center items-center gap-2'>
               <button className={`font-semibold ${selectedTab === 'personalInformation' ? ' text-red-700 border-b-2 border-red-700' : ''}`}
                 onClick={() => handleTabClick('personalInformation')}>Personal information</button> |
-
               <button className={`font-semibold ${selectedTab === 'Profile' ? 'border-b-2 text-red-700 border-red-700' : ''}`}
                 onClick={() => handleTabClick('Profile')}>Profile</button> |
 
@@ -48,7 +47,7 @@ export default function SettingPage() {
             {selectedTab === 'SocialNetworks' && <div><SocialNetworksPages /></div>}
           </div>
         </div>
-        <div className='bg-white flex flex-col gap-4 h-min w-2/6 p-4 rounded-lg border-s-8 border-s-red-600'>
+        <div className='bg-white flex flex-col gap-4 h-min md:w-2/6 p-4 rounded-lg border-s-8 border-s-red-600'>
           <h1 className='font-bold text-lg'>Personal Information</h1>
           <h1>We do not sell or share your details without your permission. Find out more in our <button className='text-indigo-900 font-bold'>Privacy Policy.</button>
             <h1>Your username,email and password can be updated via your <button className={`text-indigo-900 font-bold ${selectedTab === 'AspCartAccountSettings' ? 'border-b-2 text-red-700 border-red-700' : ''}`}

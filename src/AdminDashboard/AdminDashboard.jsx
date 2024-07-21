@@ -8,9 +8,13 @@ import Hide from '../assets/DashboardImages/hide 1.png'
 import House from '../assets/DashboardImages/house 1.png'
 import Profile from '../assets/DashboardImages/profile 1.png'
 import Rating from '../assets/DashboardImages/rating 1.png'
+import Rating2 from '../assets/DashboardImages/rating 2.png'
 import Salary from '../assets/DashboardImages/salary 1.png'
 import User from '../assets/DashboardImages/user 1.png'
 import AdminDashboardPage from './AdminDashboardPage';
+import { FaChevronDown } from "react-icons/fa";
+import RefundsPage from './RefundsPage';
+import AdminEarningsPage from './AdminEarnings/AdminEarningsPage';
 
 
 function AdminDashboard() {
@@ -20,86 +24,139 @@ function AdminDashboard() {
     setSelectedTab(tab);
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="flex bg-gray-100 gap-4 p-6">
-      <div className="w-1/5 bg-white p-8 border-2 rounded-md">
-        <div className="mb-4 flex items-center gap-4">
-          <img src={Ellipse506} alt="Profile Picture" className="rounded-full" />
-          <p className="mt-2 text-gray-700">Joined Jun 21st 24</p>
+      <div className="dasbordMaindiv md:w-1/5 w-1/4 bg-white p-8 border-2 rounded-md">
+        <div className="mb-4 flex  items-center gap-4 ">
+          <img src={Ellipse506} alt="Profile Picture" className="max-w-full rounded-full " />
+          <p className="mt-2 text-gray-700 sm:block hidden">Joined Jun 21st 24</p>
         </div>
 
         {/* Dashboard content goes here */}
-        <div className="">
+        <div className="flex flex-col gap-4 md:gap-0">
           <button
-            className={`flex flex-wrap items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'dashboard' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={` flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-md  font-semibold ${selectedTab === 'dashboard' ? 'mb:bg-gray-200 mb:text-red-700  border-2 border-red-600' : ''}`}
             onClick={() => handleTabClick('dashboard')}
           >
-            <span><img className='h-auto max-w-full' src={House} alt="" /></span>
+
+            <img className='max-w-full' src={House} alt="" />
+
             <span className='md:block hidden'>Dashboard</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'profile' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'profile' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('profile')}
           >
-            <span><img src={Profile} alt="" /></span>
-            <span>Profile</span>
+            <span><img className='max-w-full' src={Profile} alt="" /></span>
+            <span className='md:block hidden'>Profile</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'followers' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'followers' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('followers')}
           >
-            <span><img src={User} alt="" /></span>
-            <span>Followers</span>
+            <span><img className='max-w-full' src={User} alt="" /></span>
+            <span className='md:block hidden'>Followers</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'followings' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'followings' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('followings')}
           >
 
-            <span><img src={Followers} alt="" /></span>
-            <span>Followings</span>
+            <span><img className='max-w-full' src={Followers} alt="" /></span>
+            <span className='md:block hidden'>Followings</span>
           </button>
+          <div>
+            <button
+              className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'settings' ? 'bg-gray-200 text-red-700' : ''}`}
+              onClick={() => { handleTabClick('settings'); toggleDropdown }}
+            >
+              <span><img className='max-w-full' src={CogWheel} alt="" /></span>
+              <span className='md:block hidden'>Settings</span>
+              <span><FaChevronDown /></span>
+            </button>
+
+            {isOpen && (
+              <div
+                className="origin-top-right absolute right-0 mt-2 w-48 bg-white rounded-md shadow-md"
+              >
+                <div
+                  className="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Account settings
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Billing
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Sign out
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'settings' ? 'bg-gray-200 text-red-700' : ''}`}
-            onClick={() => handleTabClick('settings')}
-          >
-            <span><img src={CogWheel} alt="" /></span>
-            <span>Settings</span>
-          </button>
-          <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'hiddenItems' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'hiddenItems' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('hiddenItems')}
           >
-            <span><img src={Hide} alt="" /></span>
-            <span>Hidden Items</span>
+            <span><img className='max-w-full' src={Hide} alt="" /></span>
+            <span className='md:block hidden'>Hidden Items</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'download' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'download' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('download')}
           >
-            <span><img src={Downloading} alt="" /></span>
-            <span>Download</span>
+            <span><img className='max-w-full' src={Downloading} alt="" /></span>
+            <span className='md:block hidden'>Download</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'reviews' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'reviews' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('reviews')}
           >
-            <span><img src={Rating} alt="" /></span>
-            <span>Reviews</span>
+            <span><img className='max-w-full' src={Rating} alt="" /></span>
+            <span className='md:block hidden'>Reviews</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'earnings' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'Refunds' ? 'bg-gray-200 text-red-700' : ''}`}
+            onClick={() => handleTabClick('Refunds')}
+          >
+            <span><img className='max-w-full' src={Rating2} alt="" /></span>
+            <span className='md:block hidden'>Refunds</span>
+          </button>
+          <button
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'earnings' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('earnings')}
           >
-            <span><img src={Salary} alt="" /></span>
-            <span>Earnings</span>
+            <span><img className='max-w-full' src={Salary} alt="" /></span>
+            <span className='md:block hidden'>Earnings</span>
           </button>
           <button
-            className={`flex items-center px-10 py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'statements' ? 'bg-gray-200 text-red-700' : ''}`}
+            className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'statements' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('statements')}
           >
-            <span><img src={Evaluation} alt="" /></span>
-            <span>Statements</span>
+            <span><img className='max-w-full' src={Evaluation} alt="" /></span>
+            <span className='md:block hidden'>Statements</span>
           </button>
         </div>
       </div>
@@ -112,7 +169,8 @@ function AdminDashboard() {
         {selectedTab === 'hiddenItems' && <div>hiddenItems page</div>}
         {selectedTab === 'download' && <div>downloads page</div>}
         {selectedTab === 'reviews' && <div>reviews page</div>}
-        {selectedTab === 'earnings' && <div>earnings page</div>}
+        {selectedTab === 'Refunds' && <div><RefundsPage /></div>}
+        {selectedTab === 'earnings' && <div><AdminEarningsPage /></div>}
         {selectedTab === 'statements' && <div>statements page</div>}
       </div>
     </div>

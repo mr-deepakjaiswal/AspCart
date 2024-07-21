@@ -8,9 +8,9 @@ export default function PIAspCartDisconnectGoogleAccount() {
     setSelectedTab(tab);
   };
   return (
-    <div> {selectedTab === 'CancelDisconnectAccount' ? <PIAspCartAccountSettings /> : <div className='flex p-6 justify-between'>
+    <div> {selectedTab === 'CancelDisconnectAccount' ? <PIAspCartAccountSettings /> : <div className='flex flex-wrap md:flex-nowrap gap-4 md:gap-0 justify-between'>
       <div></div>
-      <div className="bg-white shadow-md rounded-md p-6 w-3/5">
+      <div className="bg-white shadow-md rounded-md p-6 md:w-3/5">
         <h2 className="text-xl font-bold mb-4">Disconnect Google Account</h2>
         <p className="text-gray-700 mb-4">
           If you are unsure, there is a help article.
@@ -29,8 +29,8 @@ export default function PIAspCartDisconnectGoogleAccount() {
           </button>
         </div>
       </div>
-      <div>
-        <button className='border-indigo-900 border-2 text-indigo-900 font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline'>Sign Out</button>
+      <div className=''>
+        <button className='border-indigo-900 border-2 text-indigo-900 font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline '>Sign Out</button>
       </div>
     </div>}
 

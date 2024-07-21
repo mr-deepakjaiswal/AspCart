@@ -7,8 +7,8 @@ export default function StatementsPage() {
   const [MonthlysalaryFees, setMonthlysalaryFees] = useState('');
   return (
     <div>
-      <div className='flex gap-6'>
-        <div className='w-3/4 h-min  bg-white p-6 rounded-lg'>
+      <div className='flex flex-wrap md:flex-nowrap gap-6'>
+        <div className='md:w-3/4 h-min  bg-white p-6 rounded-lg'>
           <div className='flex flex-col gap-4 '>
             <h1 className='text-md font-semibold'>Earnings</h1>
             <h1 className='text-sm'>Your sales and referral earnings over the last 30 days</h1>
@@ -36,7 +36,7 @@ export default function StatementsPage() {
           </div>
 
         </div>
-        <div className=' w-2/6 h-min'>
+        <div className=' md:w-2/6 h-min'>
           <div className='bg-white rounded-lg'>
             <h1 className='text-xl font-semibold p-6'>View Invoices</h1>
             <div className="p-2">

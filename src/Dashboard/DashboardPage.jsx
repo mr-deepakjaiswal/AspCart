@@ -9,7 +9,7 @@ export default function DashboardPage() {
   };
   return (
     <div className='w-full p-6 border-2 rounded-md h-screen bg-white'>
-      <div className='flex  gap-4'>
+      <div className='flex flex-wrap gap-4'>
         <button className={`font-semibold ${selectedTab === 'ongoing' ? ' text-red-700 border-b-2 border-red-600 pb-1' : ''}`}
         onClick={() => handleTabClick('ongoing')}>Ongoing</button> |
 

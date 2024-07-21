@@ -9,7 +9,7 @@ export default function PIAspCartEditDetails() {
   };
   return (
     <div>
-      {selectedTab === 'CancelCartAccount' ? <PIAspCartAccountSettings /> : <div className='p-6 flex ' >
+      {selectedTab === 'CancelCartAccount' ? <PIAspCartAccountSettings /> : <div className='p-6 flex flex-wrap md:flex-nowrap gap-4 md:gap-0' >
         <div></div>
         <div>
           <div className="bg-white w-4/5 p-6 rounded-md shadow-md">
@@ -73,7 +73,7 @@ export default function PIAspCartEditDetails() {
             <p className="text-gray-600 mb-4 text-sm">
               We allow 3 username changes per year. You have 3 changes remaining.
             </p>
-            <div className="flex gap-4 justify-start">
+            <div className="flex flex-wrap gap-4 justify-start">
               <button
                 className="bg-indigo-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus-shadow-outline"
                 disabled

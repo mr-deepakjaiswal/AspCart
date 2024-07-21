@@ -46,7 +46,7 @@ const StatementsPageTable = () => {
   ];
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto lg:block hidden ">
       <table className="table-auto w-full ">
         <thead>
           <tr className="bg-gray-200 ">
