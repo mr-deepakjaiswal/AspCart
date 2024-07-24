@@ -15,20 +15,33 @@ import AdminDashboardPage from './AdminDashboardPage';
 import { FaChevronDown } from "react-icons/fa";
 import RefundsPage from './RefundsPage';
 import AdminEarningsPage from './AdminEarnings/AdminEarningsPage';
+import SettingsYourDetailsPage from './SettingsYourDetailsPage';
+import SettingsAuthorTools from './AuthorTools/SettingsAuthorTools';
+import SettingsYourItems from './YourItems/SettingsYourItems';
+import FollowersPage from '../Dashboard/FollowersPage';
+import FollowingsPage from '../Dashboard/FollowingsPage';
+import HiddenItemsPage from '../Dashboard/HiddenItemsPage';
+import DounloadPageFirst from '../Dashboard/DounloadPageFirst';
+import ReviewsPage from '../Dashboard/ReviewsPage';
+import StatementsPage from '../Dashboard/StatementsPage';
+import ProfilePage from '../Dashboard/Profile/ProfilePage';
 
 
 function AdminDashboard() {
   const [selectedTab, setSelectedTab] = useState('dashboard');
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
   };
-
-  const [isOpen, setIsOpen] = useState(false);
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  const settingsDropdownBtn = (tab) => {
+    handleTabClick(tab);
+    setIsOpen(!isOpen);
+  }
 
   return (
     <div className="flex bg-gray-100 gap-4 p-6">
@@ -71,51 +84,49 @@ function AdminDashboard() {
             <span><img className='max-w-full' src={Followers} alt="" /></span>
             <span className='md:block hidden'>Followings</span>
           </button>
-          <div>
+          <div className="relative inline-block text-left">
             <button
-              className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'settings' ? 'bg-gray-200 text-red-700' : ''}`}
-              onClick={() => { handleTabClick('settings'); toggleDropdown }}
+              className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg  font-semibold ${selectedTab === 'settings' ? 'bg-gray-200 text-red-700' : ''}`}
+              onClick={() => { settingsDropdownBtn("settings") }}
             >
               <span><img className='max-w-full' src={CogWheel} alt="" /></span>
               <span className='md:block hidden'>Settings</span>
               <span><FaChevronDown /></span>
             </button>
-
             {isOpen && (
               <div
-                className="origin-top-right absolute right-0 mt-2 w-48 bg-white rounded-md shadow-md"
+                className="origin-top-right absolute left-4 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="options-menu"
               >
-                <div
-                  className="py-1"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                <div className="py-1" role="none">
+                  <button
+                    className={`block px-4 py-2 text-sm font-semibold text-black hover:text-gray-500 ${selectedTab === 'YourDetails' ? '' : ''}`}
+                    onClick={() => handleTabClick('YourDetails')}
                     role="menuitem"
                   >
-                    Account settings
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    Your Details
+                  </button>
+                  <button
+                    className={`block px-4 py-2 text-sm font-semibold text-black hover:text-gray-500 ${selectedTab === 'AuthorTools' ? '' : ''}`}
+                    onClick={() => handleTabClick('AuthorTools')}
                     role="menuitem"
                   >
-                    Billing
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    Author Tools
+                  </button>
+                  <button
+                    className={`block px-4 py-2 text-sm font-semibold text-black  hover:text-gray-500 ${selectedTab === 'YourItems' ? '' : ''}`}
+                    onClick={() => handleTabClick('YourItems')}
                     role="menuitem"
                   >
-                    Sign out
-                  </a>
+                    Your Items
+                  </button>
                 </div>
               </div>
             )}
           </div>
+
           <button
             className={`flex items-center md:px-10 md:py-2 rounded-md mt-2 gap-2 text-lg font-semibold ${selectedTab === 'hiddenItems' ? 'bg-gray-200 text-red-700' : ''}`}
             onClick={() => handleTabClick('hiddenItems')}
@@ -162,16 +173,19 @@ function AdminDashboard() {
       </div>
       <div className="w-3/4 bg-gray-100 ms-4  rounded-md ">
         {selectedTab === 'dashboard' && <div><AdminDashboardPage /></div>}
-        {selectedTab === 'profile' && <div>Admin page</div>}
-        {selectedTab === 'followers' && <div>Followers page</div>}
-        {selectedTab === 'followings' && <div>Followings page</div>}
-        {selectedTab === 'settings' && <div>settings page</div>}
-        {selectedTab === 'hiddenItems' && <div>hiddenItems page</div>}
-        {selectedTab === 'download' && <div>downloads page</div>}
-        {selectedTab === 'reviews' && <div>reviews page</div>}
+        {selectedTab === 'profile' && <div><ProfilePage /></div>}
+        {selectedTab === 'followers' && <div><FollowersPage /></div>}
+        {selectedTab === 'followings' && <div><FollowingsPage /></div>}
+        {selectedTab === 'settings' && <div> <SettingsYourDetailsPage /></div>}
+        {selectedTab === 'YourDetails' && <div><SettingsYourDetailsPage /></div>}
+        {selectedTab === 'AuthorTools' && <div><SettingsAuthorTools /></div>}
+        {selectedTab === 'YourItems' && <div><SettingsYourItems /></div>}
+        {selectedTab === 'hiddenItems' && <div><HiddenItemsPage /></div>}
+        {selectedTab === 'download' && <div><DounloadPageFirst /></div>}
+        {selectedTab === 'reviews' && <div><ReviewsPage /></div>}
         {selectedTab === 'Refunds' && <div><RefundsPage /></div>}
         {selectedTab === 'earnings' && <div><AdminEarningsPage /></div>}
-        {selectedTab === 'statements' && <div>statements page</div>}
+        {selectedTab === 'statements' && <div><StatementsPage /></div>}
       </div>
     </div>
   );

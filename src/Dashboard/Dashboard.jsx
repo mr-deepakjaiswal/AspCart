@@ -117,7 +117,7 @@ function Dashboard() {
       </div>
       <div className="w-3/4 bg-gray-100 ms-4  rounded-md ">
         {selectedTab === 'dashboard' && <div><DashboardPage /></div>}
-        {selectedTab === 'profile' && <div><AdminCollection /></div>}
+        {selectedTab === 'profile' && <div><ProfilePage /></div>}
         {selectedTab === 'followers' && <div><FollowersPage /></div>}
         {selectedTab === 'followings' && <div><FollowingsPage /></div>}
         {selectedTab === 'settings' && <div><SettingPage /></div>}

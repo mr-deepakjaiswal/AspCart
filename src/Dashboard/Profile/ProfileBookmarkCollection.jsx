@@ -96,7 +96,7 @@ export default function ProfileBookmarkCollection() {
             <div className='flex justify-center'>
               <button
                 type="submit"
-                className={`bg-indigo-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline${selectedTab === 'CreateCollection' ? 'border-b-2 text-red-700 border-red-700' : ''}`}
+                className={`bg-indigo-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${selectedTab === 'CreateCollection' ? 'border-b-2 text-red-700 border-red-700' : ''}`}
                 onClick={() => handleTabClick('CreateCollection')}
               >
                 Create Collection
